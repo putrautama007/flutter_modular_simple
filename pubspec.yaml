@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_bloc: ^6.0.6
   equatable: ^1.2.5
+  bloc_module:
+    path: bloc_module
 
 dev_dependencies:
   flutter_test:
