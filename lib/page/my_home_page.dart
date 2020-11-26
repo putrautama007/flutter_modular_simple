@@ -1,0 +1,64 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc_module/bloc_module.dart';
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => CounterBloc(),
+      child: BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '${state.counter}',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+              ],
+            ),
+          ),
+          floatingActionButton: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 5.0),
+                child: FloatingActionButton(
+                  onPressed: () => context.bloc<CounterBloc>().add(Increment()),
+                  tooltip: 'Increment',
+                  child: Icon(Icons.add),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 5.0),
+                child: FloatingActionButton(
+                  onPressed: () => context.bloc<CounterBloc>().add(Decrement()),
+                  tooltip: 'Decrement',
+                  child: Icon(Icons.remove),
+                ),
+              ),
+            ],
+          ),
+        );
+      }),
+    );
+  }
+}
