@@ -1,9 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:counter_module/counter_module.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ModularApp(module: AppModule()));
+}
+
+class AppModule extends MainModule {
+  @override
+  List<Bind> get binds => [];
+
+  @override
+  List<ModularRouter> get routers => [
+        ModularRouter(
+          Modular.initialRoute,
+          module: CounterModule(),
+        ),
+      ];
+
+  @override
+  Widget get bootstrap => MyApp();
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +31,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      navigatorKey: Modular.navigatorKey,
+      onGenerateRoute: Modular.generateRoute,
+      initialRoute: Modular.initialRoute,
     );
   }
 }

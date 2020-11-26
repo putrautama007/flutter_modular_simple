@@ -1,12 +1,11 @@
+import 'package:counter_module/counter_bloc/counter_bloc.dart';
+import 'package:counter_module/counter_bloc/counter_event.dart';
+import 'package:counter_module/counter_bloc/counter_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../counter_module.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -15,11 +14,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CounterBloc(),
+      create: (context) => Modular.get<CounterBloc>(),
       child: BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(widget.title),
+            title: Text("Flutter_modular library"),
           ),
           body: Center(
             child: Column(
