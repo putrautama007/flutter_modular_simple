@@ -1,7 +1,5 @@
 library bloc_module;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'counter_bloc/counter_bloc.dart';
+export 'counter_bloc/counter_event.dart';
+export 'counter_bloc/counter_state.dart';
