@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text("Flutter_modular library"),
+            title: Text("Flutter Modular"),
           ),
           body: Center(
             child: Column(
