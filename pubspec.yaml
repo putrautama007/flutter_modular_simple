@@ -31,8 +31,8 @@ dependencies:
   flutter_bloc: ^6.0.6
   equatable: ^1.2.5
   flutter_modular: ^2.0.1
-  bloc_module:
-    path: bloc_module
+  counter_module:
+    path: counter_module
 
 dev_dependencies:
   flutter_test:
