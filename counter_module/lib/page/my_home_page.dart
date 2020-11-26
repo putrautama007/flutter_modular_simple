@@ -3,10 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../counter_module.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -19,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(widget.title),
+            title: Text("Flutter Modular"),
           ),
           body: Center(
             child: Column(
